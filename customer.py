@@ -23,12 +23,6 @@ class Customer():
     def deleteCustomer(self):
         # delete entry in database
         return
-    def enterInfoGoals(self, gender, weight, height, age):
-        self.__gender = gender
-        self.__weight = weight
-        self.__height = height
-        self.__age = age
-        return
     def updateInfoGoals(self, gender, weight, height, age):
         self.__gender = gender
         self.__weight = weight
