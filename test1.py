@@ -76,8 +76,9 @@ def submit_info():
     print(f"Last Name: {lname}")
     print(f"Phone: {phone}")
     print(f"Gender: {gender}")
-    print(f"address: {address}")
-    print(f"weight: {weight}")
+    print(f"Address: {address}")
+    print(f"Weight: {weight}")
+    print(f"Height: {height}")
     print(f"Age: {age}")
 
 # Add a button to submit the information
