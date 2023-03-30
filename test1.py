@@ -8,7 +8,7 @@ root.title("User Information")
 input_frame = tk.Frame(root)
 input_frame.pack()
 
-# Create labels and entry fields for each piece of information
+# Create labels and entry fields for each piece of information  
 fname_label = tk.Label(input_frame, text="First Name: ")
 fname_entry = tk.Entry(input_frame)
 
