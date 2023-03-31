@@ -19,3 +19,7 @@ class Workout():
             #Remove sets from the workout
             self.workout_sets = sets
             return
+      def get_workout_info(self):
+            return f"Workout: {self.workoutname}, {self.reps}, {self.reps}"
+
+            
