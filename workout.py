@@ -1,8 +1,9 @@
 class Workout():
-      def __int__(self, workoutname, sets, reps):
+      def __int__(self, workoutname, sets, reps, weight):
             self.workout_workoutname = workoutname
             self.workout_reps = reps
             self.workout_sets = sets
+            self.weight = weight
       def addRep(self, reps):
             #Add more reps to the workout
             self.workout_reps = reps
@@ -22,4 +23,3 @@ class Workout():
       def get_workout_info(self):
             return f"Workout: {self.workoutname}, {self.reps}, {self.reps}"
 
-            
