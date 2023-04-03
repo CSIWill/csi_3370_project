@@ -22,8 +22,8 @@ def log_workout():
     #workout1 = Workout(exercise, reps, weight)
     workout_text.insert(tk.END, f"Exercise Name: {exercise}, Amount of Reps: {reps}, Weight (if applicable): {weight}")
     #------ For writing the workouts to a txt file, could help when we want to make a database. 
-    #with open("workouts.txt", "a") as f:
-     #   f.write(f"Exercise: {exercise}, Reps: {reps}, Weight: {weight}\n")
+    with open("workouts.txt", "a") as f:
+        f.write(f"Exercise: {exercise}, Reps: {reps}, Weight: {weight}\n")
     exercise_entry.delete(0, tk.END)
     reps_entry.delete(0, tk.END)
     weight_entry.delete(0, tk.END)
