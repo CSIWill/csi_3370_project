@@ -80,6 +80,9 @@ def submit_info():
     print(f"Weight: {weight}")
     print(f"Height: {height}")
     print(f"Age: {age}")
+    with open("customers.txt", "a") as f:
+        f.write(f"\nFirst Name: {fname}\nLast Name: {lname}\nPhone: {phone}\nGender: {gender}\nAddress: {address}\nWeight: {weight}\nHeight: {height}\nAge: {age}\n---------------")
+
 
 # Add a button to submit the information
 submit_button = tk.Button(root, text="Submit", command=submit_info)
