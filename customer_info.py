@@ -5,7 +5,7 @@ root = tk.Tk()
 root.title("User Information")
 
 # Set window size
-root.geometry("570x320")
+root.geometry("800x800")
 
 # Set background color
 root.configure(bg="#e4f5ec")
@@ -144,6 +144,10 @@ def submit_info():
     error_label.config(text="Form Successfully Submitted. Closing Window...", fg="green")
     #close the screen 4 seconds after the button is pressed
     root.after(4000, root.destroy)
+    #Write to text doc. 
+    with open("customers.txt", "a") as f:
+        f.write(f"\nFirst Name: {fname}\nLast Name: {lname}\nPhone: {phone}\nGender: {gender}\nAddress: {address}\nWeight: {weight}\nHeight: {height}\nAge: {age}\n---------------")
+
 
 
 # Add a label to display errors to the user
