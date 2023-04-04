@@ -1,0 +1,7 @@
+Exercise: , Reps: , Weight: 
+Exercise: , Reps: , Weight: 
+Exercise: , Reps: , Weight: 
+Exercise: , Reps: , Weight: 
+Exercise: Pushups, Reps: 20, Weight: NA
+Exercise: 44, Reps: 44, Weight: 44
+Exercise: 12, Reps: 12, Weight: 12
