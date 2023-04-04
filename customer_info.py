@@ -146,7 +146,7 @@ def submit_info():
     root.after(4000, root.destroy)
     #Write to text doc. 
     with open("customers.txt", "a") as f:
-        f.write(f"\nFirst Name: {fname}\nLast Name: {lname}\nPhone: {phone}\nGender: {gender}\nAddress: {address}\nWeight: {weight}\nHeight: {height}\nAge: {age}\n---------------")
+        f.write(f"\nFirst Name: {customer_fname}\nLast Name: {customer_lname}\nPhone: {customer_phone}\nGender: {customer_gender}\nAddress: {customer_address}\nWeight: {customer_weight}\nHeight: {customer_height}\nAge: {customer_age}\n---------------")
 
 
 
