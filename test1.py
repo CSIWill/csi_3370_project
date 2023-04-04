@@ -1,8 +1,11 @@
 import tkinter as tk
+from customer import Customer
+
 
 # Define the main window of the application
 root = tk.Tk()
 root.title("User Information")
+root.geometry("400x700")
 
 # Create a frame to contain the input fields
 input_frame = tk.Frame(root)
@@ -80,13 +83,9 @@ def submit_info():
     print(f"Weight: {weight}")
     print(f"Height: {height}")
     print(f"Age: {age}")
-    with open("customers.txt", "a") as f:
-        f.write(f"\nFirst Name: {fname}\nLast Name: {lname}\nPhone: {phone}\nGender: {gender}\nAddress: {address}\nWeight: {weight}\nHeight: {height}\nAge: {age}\n---------------")
-
 
 # Add a button to submit the information
 submit_button = tk.Button(root, text="Submit", command=submit_info)
 submit_button.pack(pady=10)
-
 # Start the application
 root.mainloop()

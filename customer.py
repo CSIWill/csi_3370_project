@@ -29,6 +29,8 @@ class Customer():
         self.__height = height
         self.__age = age
         return
+    def get_info(self):
+        return f"{self.__customer_firstname}, {self.__custiner_lastname}"
     def requestRoutine(self):
         return
     def addRoutine(self):
