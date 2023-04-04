@@ -7,8 +7,8 @@ root.geometry("400x700")
 
 # Define the function for button 1
 def open_file1():
-    import file1 # Import the other Tkinter file
-    file1.main() # Call the main function from file1
+    import test1 # Import the other Tkinter file
+    test1.main() # Call the main function from file1
 
 # Define the function for button 2
 def open_file2():
