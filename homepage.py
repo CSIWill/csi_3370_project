@@ -10,17 +10,17 @@ root.configure(bg="#e4f5ec")
 
 # Define the function for button 1
 def open_file1():
-    import customerinfo # Import the other Tkinter file
-    #customerinfo.main() # Call the main function from file1
+    import customerinfo 
+    #customerinfo.main() # Call the main function from customerinfo
 
 # Define the function for button 2
 def open_file2():
-    import workoutinfo # Import the other Tkinter file
-    #workout.main() # Call the main function from file2
+    import workoutinfo 
+    #workout.main() # Call the main function from workoutinfo
     
 # Define the function for button 3
 def open_file3():
-    import testTrainer # Import the other Tkinter file
+    import testTrainer 
     #testTrainer.main() # Call the main function from testTrainer
     
 title = tk.Label(root, text = "Predatory Elephants Workout App")

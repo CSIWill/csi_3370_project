@@ -37,9 +37,7 @@ class TrainerRegistrationGUI:
         self.remove_button.grid(row=2, column=2, pady=100)
             
            
-   
-            
-            
+        
             
     def register_trainer(self):
         # Code to register trainer with given Trainer ID and Name

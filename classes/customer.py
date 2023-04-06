@@ -32,7 +32,7 @@ class Customer():
         
         return
     def get_info(self):
-        return f"{self.__customer_firstname}, {self.__custiner_lastname}"
+        return f"{self.__customer_firstname}, {self.__customer_lastname}"
     def requestRoutine(self):
         return
     def addRoutine(self):

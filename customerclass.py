@@ -22,6 +22,11 @@ class Customer():
     def registerCustomer(self):
         # check to see if customer already exists in database
         # if not found, commit to database, and change customer_id to primary key value
+        addCustomer = ("INSERT INTO customer "
+                "(customer_fname,customer_lname)"
+                "VALUES (%s,%s)")
+        cursor.execute(addCustomer,)
+        cnx.commit()
         return
     def updateCustomer(self, firstname, lastname, address, phone):
         self.__customer_firstname = firstname
@@ -39,14 +44,20 @@ class Customer():
         self.__height = height
         self.__age = age
         getIDquery = ("SELECT customer_id FROM customer WHERE customer_fname = %s AND customer_lname = %s AND customer_phone = %s")
-        customerContact = (self.__customer_firstname, )
-        
+        customerContact = (self.__customer_firstname, self.__customer_lastname, self.__customer_phone)
+        cursor.execute(getIDquery,customerContact)
+        results = cursor.fetchall()
+        for result in results:
+            customer_id = result[0]
         updateBodyInfo = ("UPDATE customer "
                           "SET gender = %s, "
                           "weight = %i, "
                           "height = %i, "
                           "age = %i "
-                          "WHERE ")
+                          "WHERE customer_id = %i")
+        bodyInfo = (self.__gender,self.__weight,self.__height,self.__age, customer_id)
+        cursor.execute(updateBodyInfo,bodyInfo)
+        cnx.commit()
         return
     def get_info(self):
         return f"{self.__customer_firstname}, {self.__customer_lastname}"

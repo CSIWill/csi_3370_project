@@ -145,19 +145,18 @@ def submit_info():
     print(f"Age: {customer_age}")
 
     #add customer function
-    add_customer = ("INSERT INTO customer "
-                "(customer_fname,customer_lname)"
-                "VALUES (%s,%s)")
-
-    customer = (fname_entry.get(), lname_entry.get())
-
-
-    cursor.execute(add_customer,customer)
+    sql = "INSERT INTO customer (customer_fname, customer_lname, customer_phone, customer_email, customer_gender, customer_address, weight, height, age) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)"
+    val = (customer_fname, customer_lname, customer_phone, customer_email, customer_gender, customer_address, customer_weight, customer_height, customer_age)
+    cursor.execute(sql, val)
     cnx.commit()
 
     read_customer = ("Select * From customer")
+    cursor.execute(read_customer)
+    results = cursor.fetchall()
+    for result in results: 
+        print(result)
 
-    print(cursor.execute(read_customer))
+    #print()
 
     cursor.close()
     cnx.close()
