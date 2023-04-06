@@ -9,7 +9,11 @@ class Customer():
         self.__height = 0
         self.__age = 0
         self.__customer_id = 0
-    def registerCustomer(self):
+    def registerCustomer(self,firstname,lastname, address, phone):
+        customer = (firstname,lastname)
+        checkCustomer = ("SELECT * FROM customer WHERE customer_fname = %s and customer_lname = %s")
+        ifcheckCustomer
+        
         # check to see if customer already exists in database
         # if not found, commit to database, and change customer_id to primary key value
         return
@@ -28,6 +32,7 @@ class Customer():
         self.__weight = weight
         self.__height = height
         self.__age = age
+        
         return
     def get_info(self):
         return f"{self.__customer_firstname}, {self.__custiner_lastname}"

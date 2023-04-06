@@ -1,5 +1,5 @@
 import mysql.connector
-
+from customer import Customer
 cnx = mysql.connector.connect(
     host = "localhost",
     user = "root",
@@ -9,19 +9,27 @@ cnx = mysql.connector.connect(
 cursor = cnx.cursor(buffered=True)
 add_customer = ("INSERT INTO customer "
                 "(customer_fname,customer_lname)"
-                "VALUES (%s,%s)")
+                "VALUES (%s,%s) ")
+
+customerInfo = ('john', 'doe')
+
+read_customer = ("(SELECT * FROM customer WHERE customer_fname = %s and customer_lname = %s)")
+cursor.execute(read_customer, customerInfo)
+myresult = cursor.fetchall()
+for x in myresult:
+    # print(x[1:3])
+    print(x)
+    #if x[1:3] == customer:
+    #    print("already matching")
+    
 
 
+# cursor.execute(add_customer,customer)
+# cnx.commit()
 
-customer = ('john', 'doe')
+#userInfo = Customer('john', 'doe','123 Blueberry Lane', '1234567890')
+#userInfo.registerCustomer()
 
-
-cursor.execute(add_customer,customer)
-cnx.commit()
-
-read_customer = ("Select * From customer")
-
-print(cursor.execute(read_customer))
 
 cursor.close()
 cnx.close()
