@@ -1,12 +1,12 @@
 import tkinter as tk
 from tkinter import ttk
-from workout import Workout
+from workoutClass import Workout
 
 
 # Define the main window
 root = tk.Tk()
-root.title("Workout Manager")
-root.geometry("400x700")
+root.title("Workout Information")
+root.geometry("800x800")
 #Set the background color
 root.configure(bg = "#e4f5ec")
 #Configuring the background color
@@ -19,14 +19,16 @@ def log_workout():
     exercise = exercise_entry.get()
     reps = reps_entry.get()
     weight = weight_entry.get()
+    sets = sets_entry.get()
     #workout1 = Workout(exercise, reps, weight)
     workout_text.insert(tk.END, f"Exercise Name: {exercise}, Amount of Reps: {reps}, Weight (if applicable): {weight}")
     #------ For writing the workouts to a txt file, could help when we want to make a database. 
     with open("workouts.txt", "a") as f:
-        f.write(f"Exercise: {exercise}, Reps: {reps}, Weight: {weight}\n")
+        f.write(f"Exercise: {exercise}, Reps: {reps}, Sets: {sets} Weight: {weight}\n")
     exercise_entry.delete(0, tk.END)
     reps_entry.delete(0, tk.END)
     weight_entry.delete(0, tk.END)
+    workout = Workout(exercise, sets, reps, weight)
 #Function to generate workout that is pre made 
 #--------This will have to access the database when it is created------------
 def generate_workout():
@@ -38,6 +40,8 @@ exercise_label = ttk.Label(root, text="Exercise:")
 exercise_entry = ttk.Entry(root, width=30)
 reps_label = ttk.Label(root, text="Reps:")
 reps_entry = ttk.Entry(root, width=30)
+sets_label = ttk.Label(root, text="Sets: ")
+sets_entry = ttk.Entry(root, width=30)
 weight_label = ttk.Label(root, text="Weight (lbs):")
 weight_entry = ttk.Entry(root, width=30)
 workout_title_text = ttk.Label(root, text = "Current Workout:")
@@ -54,6 +58,8 @@ exercise_label.pack(pady=10)
 exercise_entry.pack(pady=10)
 reps_label.pack(pady=10)
 reps_entry.pack(pady=10)
+sets_label.pack(pady=10)
+sets_entry.pack(pady=10)
 weight_label.pack(pady=10)
 weight_entry.pack(pady=10)
 log_button.pack(pady=20)

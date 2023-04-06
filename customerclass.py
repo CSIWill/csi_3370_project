@@ -1,3 +1,13 @@
+import mysql.connector
+
+cnx = mysql.connector.connect(
+    host = "localhost",
+    user = "root",
+    password = "csi3370!",
+    database ="predatory_elephants"
+)
+cursor = cnx.cursor(buffered=True)
+
 class Customer():
     def __init__(self, firstname, lastname, address, phone):
         self.__customer_firstname = firstname
@@ -28,9 +38,18 @@ class Customer():
         self.__weight = weight
         self.__height = height
         self.__age = age
+        getIDquery = ("SELECT customer_id FROM customer WHERE customer_fname = %s AND customer_lname = %s AND customer_phone = %s")
+        customerContact = (self.__customer_firstname, )
+        
+        updateBodyInfo = ("UPDATE customer "
+                          "SET gender = %s, "
+                          "weight = %i, "
+                          "height = %i, "
+                          "age = %i "
+                          "WHERE ")
         return
     def get_info(self):
-        return f"{self.__customer_firstname}, {self.__custiner_lastname}"
+        return f"{self.__customer_firstname}, {self.__customer_lastname}"
     def requestRoutine(self):
         return
     def addRoutine(self):
@@ -39,5 +58,5 @@ class Customer():
         return
     def trackWorkout(self):
         return
-    
+cnx.close()
         

@@ -1,8 +1,11 @@
 import tkinter as tk
+import mysql.connector
+#from customerclass import Customer
+#sudo pip install mysql-connector-python
 
 # Define the main window of the application
 root = tk.Tk()
-root.title("User Information")
+root.title("Customer Information")
 
 # Set window size
 root.geometry("800x800")
@@ -76,6 +79,15 @@ height_entry.grid(row=3, column=3, padx=5, pady=5)
 age_label.grid(row=4, column=2, padx=5, pady=5, sticky=tk.W)
 age_entry.grid(row=4, column=3, padx=5, pady=5)
 
+# Connect to the Cloud SQL database
+cnx = mysql.connector.connect(
+    host = "localhost",
+    user = "root",
+    password = "csi3370!",
+    database ="predatory_elephants"
+)
+cursor = cnx.cursor(buffered=True)
+
 # Create a function to handle the button click event
 def submit_info():
     if not fname_entry.get() or not lname_entry.get() or not phone_entry.get() or not gender_entry.get() or not address_entry.get() or not weight_entry.get() or not height_entry.get() or not age_entry.get():
@@ -132,6 +144,24 @@ def submit_info():
     print(f"Height (cm): {customer_height}")
     print(f"Age: {customer_age}")
 
+    #add customer function
+    add_customer = ("INSERT INTO customer "
+                "(customer_fname,customer_lname)"
+                "VALUES (%s,%s)")
+
+    customer = (fname_entry.get(), lname_entry.get())
+
+
+    cursor.execute(add_customer,customer)
+    cnx.commit()
+
+    read_customer = ("Select * From customer")
+
+    print(cursor.execute(read_customer))
+
+    cursor.close()
+    cnx.close()
+
     # Clear entries and error label updated
     fname_entry.delete(0, tk.END)
     lname_entry.delete(0, tk.END)
@@ -145,8 +175,8 @@ def submit_info():
     #close the screen 4 seconds after the button is pressed
     root.after(4000, root.destroy)
     #Write to text doc. 
-    with open("customers.txt", "a") as f:
-        f.write(f"\nFirst Name: {customer_fname}\nLast Name: {customer_lname}\nPhone: {customer_phone}\nGender: {customer_gender}\nAddress: {customer_address}\nWeight: {customer_weight}\nHeight: {customer_height}\nAge: {customer_age}\n---------------")
+    #with open("customers.txt", "a") as f:
+        #f.write(f"\nFirst Name: {customer_fname}\nLast Name: {customer_lname}\nPhone: {customer_phone}\nGender: {customer_gender}\nAddress: {customer_address}\nWeight: {customer_weight}\nHeight: {customer_height}\nAge: {customer_age}\n---------------")
 
 
 

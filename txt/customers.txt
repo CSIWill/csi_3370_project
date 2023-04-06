@@ -1,0 +1,10 @@
+
+First Name: ethan
+Last Name: sled
+Phone: 123
+Gender: male
+Address: 123 ln
+Weight: 123
+Height: 126
+Age: 21
+---------------
