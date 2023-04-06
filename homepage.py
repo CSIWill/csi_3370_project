@@ -7,23 +7,23 @@ root.geometry("400x700")
 
 # Define the function for button 1
 def open_file1():
-    import test1 # Import the other Tkinter file
-    test1.main() # Call the main function from file1
+    import customerinfo # Import the other Tkinter file
+    customerinfo.main() # Call the main function from file1
 
 # Define the function for button 2
 def open_file2():
-    import file2 # Import the other Tkinter file
-    file2.main() # Call the main function from file2
+    import workout # Import the other Tkinter file
+    workout.main() # Call the main function from file2
     
 # Define the function for button 3
 def open_file3():
-    import file3 # Import the other Tkinter file
-    file3.main() # Call the main function from file2
+    import testTrainer # Import the other Tkinter file
+    testTrainer.main() # Call the main function from file2
     
 # Define the function for button 4
 def open_file4():
-    import file4 # Import the other Tkinter file
-    file4.main() # Call the main function from file2
+    import test2 # Import the other Tkinter file
+    test2.main() # Call the main function from file2
 
 # Create two buttons to access the other Tkinter files
 button1 = tk.Button(root, text="Open File 1", command=open_file1)
