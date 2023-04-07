@@ -63,7 +63,7 @@ updateBodyInfo = ("UPDATE customer "
                 "height = %s, "
                 "age = %s "
                 "WHERE customer_id = %s")
-bodyInfo = ('M',200,60,45, customer_id)
+bodyInfo = ('M',200,72,45, customer_id)
 cursor.execute(updateBodyInfo,bodyInfo)
 cnx.commit()
         
