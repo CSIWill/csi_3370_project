@@ -49,7 +49,6 @@ age_label = tk.Label(input_frame, text="Age: ", font=("arial", 12), bg=root["bg"
 age_entry = tk.Entry(input_frame)
 
 
-
 # Add the labels and entry fields to the frame
 title_label.grid(row=0, column=0, columnspan=4, padx=5, pady=5)
 fname_label.grid(row=1, column=0, padx=5, pady=5, sticky=tk.W)
@@ -186,6 +185,10 @@ error_label.pack()
 # Add a button to submit the information
 submit_button = tk.Button(root, text="Submit", font=("arial",10), command=submit_info, relief="raised", borderwidth=5, fg="white", bg="grey", padx=5, pady=5)
 submit_button.pack(pady=10)
+
+# Update Button
+update_button = tk.Button(input_frame, text="Update", command=update_trainer)
+update_button.grid(row=2, column=1, pady=100)
 
 # Start the application
 root.mainloop()

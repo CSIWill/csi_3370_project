@@ -37,36 +37,6 @@ class TrainerRegistrationGUI:
         self.remove_button.grid(row=2, column=2, pady=100)
             
            
-        
-            
-    def register_trainer(self):
-        # Code to register trainer with given Trainer ID and Name
-        trainer_id = self.trainer_id_entry.get()
-        name = self.name_entry.get()
-
-        # Code to add trainer to log
-        # ...
-
-        print("Trainer registered successfully.")
-
-    def update_trainer(self):
-        # Code to update trainer with given Trainer ID and Name
-        trainer_id = self.trainer_id_entry.get()
-        name = self.name_entry.get()
-
-        # Code to update trainer in log
-        # ...
-
-        print("Trainer updated successfully.")
-
-    def remove_trainer(self):
-        # Code to remove trainer with given Trainer ID
-        trainer_id = self.trainer_id_entry.get()
-
-        # Code to remove trainer from log
-        # ...
-
-        print("Trainer removed successfully.")
 
 root = tk.Tk()
 my_gui = TrainerRegistrationGUI(root)
