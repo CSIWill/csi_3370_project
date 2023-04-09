@@ -150,14 +150,10 @@ def submit_info():
     cursor.execute(sql, val)
     cnx.commit()
 
-    read_customer = ("Select * From customer")
-    cursor.execute(read_customer)
-    results = cursor.fetchall()
-    for result in results: 
-        print(result)
+    customer_id = cursor.lastrowid
 
-    #print()
-
+# Print the customer_id
+    print("New Customer ID:", customer_id)
     cursor.close()
     cnx.close()
 
