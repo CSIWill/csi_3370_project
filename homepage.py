@@ -20,6 +20,16 @@ def open_file2():
     
 # Define the function for button 3
 def open_file3():
+    import routineinfo
+    #routineinfo.main() # Call the main function from routineinfo
+
+# Define the function for button 4
+def open_file4():
+    import customerupdate 
+    #testTrainer.main() # Call the main function from customerupdate
+
+# Define the function for button 5
+def open_file5():
     import testTrainer 
     #testTrainer.main() # Call the main function from testTrainer
     
@@ -32,8 +42,14 @@ button1.pack(padx=100)
 button2 = tk.Button(root, text="Open Workout Info", command=open_file2)
 button2.pack(pady=100)
 
-button3 = tk.Button(root, text="Open Trainer Info", command=open_file3)
+button3 = tk.Button(root, text="Open Routine Info", command=open_file3)
 button3.pack(padx=100)
+
+button4 = tk.Button(root, text="Open Update Info", command=open_file4)
+button4.pack(pady=100)
+
+button4 = tk.Button(root, text="Open Trainer Info", command=open_file5)
+button4.pack(padx=100)
 
 # Run the window
 root.mainloop()
