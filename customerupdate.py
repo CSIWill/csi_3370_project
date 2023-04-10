@@ -20,20 +20,37 @@ input_frame.pack()
 
 title_label = tk.Label(input_frame, text="Body Update Form", font=("arial bold", 20), bg=root["bg"])  
 
+# Connect to the Cloud SQL database
+cnx = mysql.connector.connect(
+    host = "localhost",
+    user = "root",
+    password = "csi3370!",
+    database ="predatory_elephants"
+)
+cursor = cnx.cursor(buffered=True)
+
+# Retrieve the customer's information from the database
+sql = "SELECT customer_gender, weight, height, age FROM customer ORDER BY customer_id DESC LIMIT 1"
+cursor.execute(sql)
+result = cursor.fetchone()
+customer_gender, customer_weight, customer_height, customer_age = result
+
 # Create labels and entry fields for each piece of information
 gender_label = tk.Label(input_frame, text="Gender: ", font=("arial", 12), bg=root["bg"])
 gender_entry = tk.Entry(input_frame)
+gender_entry.insert(0, customer_gender)
 
 weight_label = tk.Label(input_frame, text="Weight (lbs):", font=("arial", 12), bg=root["bg"])
 weight_entry = tk.Entry(input_frame)
+weight_entry.insert(0, customer_weight)
 
 height_label = tk.Label(input_frame, text="Height (cm):", font=("arial", 12), bg=root["bg"])
 height_entry = tk.Entry(input_frame)
+height_entry.insert(0, customer_height)
 
 age_label = tk.Label(input_frame, text="Age: ", font=("arial", 12), bg=root["bg"])
 age_entry = tk.Entry(input_frame)
-
-
+age_entry.insert(0, customer_age)
 
 # Add the labels and entry fields to the frame
 title_label.grid(row=0, column=0, columnspan=4, padx=5, pady=5)
@@ -49,15 +66,6 @@ height_entry.grid(row=3, column=1, padx=5, pady=5)
 
 age_label.grid(row=4, column=0, padx=5, pady=5, sticky=tk.W)
 age_entry.grid(row=4, column=1, padx=5, pady=5)
-
-# Connect to the Cloud SQL database
-cnx = mysql.connector.connect(
-    host = "localhost",
-    user = "root",
-    password = "csi3370!",
-    database ="predatory_elephants"
-)
-cursor = cnx.cursor(buffered=True)
 
 # Create a function to handle the button click event
 def submit_info():
