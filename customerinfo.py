@@ -1,6 +1,6 @@
 import tkinter as tk
-import mysql.connector
-#from customerclass import Customer
+# import mysql.connector
+from customerclass import Customer
 #sudo pip install mysql-connector-python
 
 # Define the main window of the application
@@ -79,13 +79,13 @@ age_label.grid(row=4, column=2, padx=5, pady=5, sticky=tk.W)
 age_entry.grid(row=4, column=3, padx=5, pady=5)
 
 # Connect to the Cloud SQL database
-cnx = mysql.connector.connect(
-    host = "localhost",
-    user = "root",
-    password = "csi3370!",
-    database ="predatory_elephants"
-)
-cursor = cnx.cursor(buffered=True)
+# cnx = mysql.connector.connect(
+#     host = "localhost",
+#     user = "root",
+#     password = "csi3370!",
+#     database ="predatory_elephants"
+# )
+# cursor = cnx.cursor(buffered=True)
 
 # Create a function to handle the button click event
 def submit_info():
@@ -143,18 +143,23 @@ def submit_info():
     print(f"Height (cm): {customer_height}")
     print(f"Age: {customer_age}")
 
-    #add customer function
-    sql = "INSERT INTO customer (customer_fname, customer_lname, customer_phone, customer_email, customer_gender, customer_address, weight, height, age) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)"
-    val = (customer_fname, customer_lname, customer_phone, customer_email, customer_gender, customer_address, customer_weight, customer_height, customer_age)
-    cursor.execute(sql, val)
-    cnx.commit()
+    myCustomer = Customer(customer_fname,customer_lname,customer_address,customer_phone,customer_email,customer_gender,customer_weight,customer_height,customer_age)
 
-    customer_id = cursor.lastrowid
+    #add customer function
+    # sql = "INSERT INTO customer (customer_fname, customer_lname, customer_phone, customer_email, customer_gender, customer_address, weight, height, age) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)"
+    # val = (customer_fname, customer_lname, customer_phone, customer_email, customer_gender, customer_address, customer_weight, customer_height, customer_age)
+    # cursor.execute(sql, val)
+    # cnx.commit()
+    myCustomer.registerCustomer()
+
+
+
+    customer_id = myCustomer.getCustomerID()
 
 # Print the customer_id
     print("New Customer ID:", customer_id)
-    cursor.close()
-    cnx.close()
+    # cursor.close()
+    # cnx.close()
 
     # Clear entries and error label updated
     fname_entry.delete(0, tk.END)
@@ -182,9 +187,6 @@ error_label.pack()
 submit_button = tk.Button(root, text="Submit", font=("arial",10), command=submit_info, relief="raised", borderwidth=5, fg="white", bg="grey", padx=5, pady=5)
 submit_button.pack(pady=10)
 
-# Update Button
-update_button = tk.Button(input_frame, text="Update", command=update_trainer)
-update_button.grid(row=2, column=1, pady=100)
 
 # Start the application
 root.mainloop()

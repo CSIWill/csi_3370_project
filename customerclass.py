@@ -9,16 +9,16 @@ cnx = mysql.connector.connect(
 
 
 class Customer():
-    def __init__(self, firstname, lastname, address, phone, email):
+    def __init__(self, firstname, lastname, address, phone, email, gender='NA',weight=0,height=0,age=0):
         self.__customer_firstname = firstname
         self.__customer_lastname = lastname
         self.__customer_address = address
         self.__customer_email = email
         self.__customer_phone = phone
-        self.__customer_gender = 'NA'
-        self.__weight = 0
-        self.__height = 0
-        self.__age = 0
+        self.__customer_gender = gender
+        self.__weight = weight
+        self.__height = height
+        self.__age = age
         self.__customer_id = 0
     def get_info(self):
         return (self.__customer_firstname, self.__customer_lastname, self.__customer_phone, self.__customer_email, self.__customer_gender, self.__customer_address, self.__weight, self.__height, self.__age)
